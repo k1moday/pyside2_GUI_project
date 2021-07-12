@@ -4,12 +4,13 @@ from PySide2.QtWidgets import *
 
 from mainwindow import Ui_Dialog
 from untitled import Ui_Form
+from realMain import Ui_MainWindow
 
 
 class MainWindow(QMainWindow, Ui_Dialog):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.ui = Ui_Dialog()
+        self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
         QMetaObject.connectSlotsByName(self)
@@ -32,7 +33,6 @@ class Func1Window(QMainWindow, Ui_Form):
         self.ui = Ui_Form()
         self.ui.setupUi(self)
 
-        self.ui.comboBox.
 
 if __name__ == '__main__':
     app = QApplication([])
