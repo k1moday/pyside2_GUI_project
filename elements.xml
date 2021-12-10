@@ -1,0 +1,22 @@
+<circutelements>
+<element category="Resistor">
+  <model>SCT3080AL</model>
+  <temperature>-55 175</temperature>
+  <package>TO-247N</package>
+  <numcount>4</numcount>
+  <volt>650</volt>
+  <ampere>30</ampere>
+  <resistance>80m</resistance>
+  <lifemodel>resistor</lifemodel>
+</element>
+<element category="Mosfet">
+  <model>SCS230AE2</model>
+  <temperature>-55 175</temperature>
+  <package>TO-247</package>
+  <numcount>4</numcount>
+  <volt>650</volt>
+  <ampere>30</ampere>
+  <resistance>23n</resistance>
+  <lifemodel>resistor</lifemodel>
+</element>
+</circutelements>

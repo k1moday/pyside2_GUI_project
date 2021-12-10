@@ -34,6 +34,7 @@ class Ui_MainWindow(object):
         self.actiondelete.setObjectName(u"actiondelete")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet(u"")
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
@@ -43,22 +44,44 @@ class Ui_MainWindow(object):
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(340, 430, 121, 51))
+        font = QFont()
+        font.setFamily(u"\u5fae\u8f6f\u96c5\u9ed1 Light")
+        font.setPointSize(11)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet(u"QPushButton{\n"
+"	background-color: white;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(46, 182, 255);\n"
+"}")
         self.pushButton_2 = QPushButton(self.centralwidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setGeometry(QRect(570, 430, 121, 51))
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet(u"QPushButton{\n"
+"	background-color: white;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(46, 182, 255);\n"
+"}")
         self.pushButton_3 = QPushButton(self.centralwidget)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(110, 430, 121, 51))
-        self.pushButton_3.setStyleSheet(u"QPushButuon {\n"
-"	background-color:rgb(249, 252, 255);\n"
-"	border-radius:3px;\n"
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setAutoFillBackground(False)
+        self.pushButton_3.setStyleSheet(u"QPushButton{\n"
+"	background-color: white;\n"
+"	border-radius: 8px;\n"
+"	border-style:solid\n"
 "}\n"
-"QPushBotton:hover{\n"
-"	background-color:rgb(46, 182, 255)\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(46, 182, 255);\n"
 "}")
         self.label_2 = QLabel(self.centralwidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(420, 170, 452, 141))
+        self.label_2.setGeometry(QRect(420, 170, 407, 130))
         self.label_2.setPixmap(QPixmap(u"../../Desktop/\u65e0\u6807\u9898.png"))
         self.label_2.setScaledContents(True)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -67,10 +90,34 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QRect(0, 0, 800, 23))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
+        self.menu.setStyleSheet(u"QMenu {\n"
+"     background-color : white;\n"
+"     color :  black ;\n"
+"}\n"
+"QMenu::item:selected {\n"
+"     background-color :  rgb(0, 170, 255);\n"
+"     color :  black ;\n"
+"}")
         self.menu_2 = QMenu(self.menubar)
         self.menu_2.setObjectName(u"menu_2")
+        self.menu_2.setStyleSheet(u"QMenu {\n"
+"     background-color : white;\n"
+"     color :  black ;\n"
+"}\n"
+"QMenu::item:selected {\n"
+"     background-color :  rgb(0, 170, 255);\n"
+"     color :  black ;\n"
+"}")
         self.menu_3 = QMenu(self.menubar)
         self.menu_3.setObjectName(u"menu_3")
+        self.menu_3.setStyleSheet(u"QMenu {\n"
+"     background-color : white;\n"
+"     color :  black ;\n"
+"}\n"
+"QMenu::item:selected {\n"
+"     background-color :  rgb(0, 170, 255);\n"
+"     color :  black ;\n"
+"}")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -98,9 +145,9 @@ class Ui_MainWindow(object):
         self.actionedit.setText(QCoreApplication.translate("MainWindow", u"edit", None))
         self.actiondelete.setText(QCoreApplication.translate("MainWindow", u"delete", None))
         self.label.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u76d1\u6d4b", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u91cf\u5316", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u63a7\u5236", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u6a21\u578b\u5bfc\u5165", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u591a\u7269\u7406\u573a\u8026\u5408\u4eff\u771f", None))
         self.label_2.setText("")
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u6587\u4ef6", None))
         self.menu_2.setTitle(QCoreApplication.translate("MainWindow", u"\u6570\u636e\u5e93", None))

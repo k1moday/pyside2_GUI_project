@@ -22,7 +22,7 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="autoFillBackground">
-    <bool>true</bool>
+    <bool>false</bool>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
@@ -55,6 +55,12 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑 Light</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: white;
@@ -65,7 +71,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>寿命监测</string>
+     <string>寿命量化</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -76,6 +82,12 @@ QPushButton:hover{
       <width>121</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑 Light</family>
+      <pointsize>11</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -99,6 +111,12 @@ QPushButton:hover{
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑 Light</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
@@ -113,7 +131,7 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>模型导入</string>
+     <string>多物理场耦合仿真</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -121,8 +139,8 @@ QPushButton:hover{
      <rect>
       <x>420</x>
       <y>170</y>
-      <width>452</width>
-      <height>141</height>
+      <width>407</width>
+      <height>130</height>
      </rect>
     </property>
     <property name="text">
