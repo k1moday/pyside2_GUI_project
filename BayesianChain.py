@@ -1,8 +1,9 @@
 from numpy import *
 import numpy as np
 
+
 def bayesianChain(data, Lx0):
-   # function[muak, sigmaak] = BayesianChain(data, Lx0)
+    # function[muak, sigmaak] = BayesianChain(data, Lx0)
     mua0 = Lx0[0]
     sigmaa0 = Lx0[1]
     sigmaB = Lx0[2]
@@ -35,4 +36,3 @@ def bayesianChain(data, Lx0):
     muak = musave
     sigmaak = sigmasave
     return muak, sigmaak
-
