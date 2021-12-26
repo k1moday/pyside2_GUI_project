@@ -4,7 +4,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from PySide2.QtSql import *
-from qt_material import apply_stylesheet
 from PySide2.QtWidgets import QFileDialog
 from PySide2.QtWidgets import QMessageBox
 from PySide2.QtUiTools import QUiLoader
@@ -237,6 +236,9 @@ class Func2Window(QMainWindow):
             return
         currentRow = self.ui.tableWidget_2.currentRow()
         self.ui.tableWidget_2.removeRow(currentRow)
+        if currentRow == -1:
+            QMessageBox.information(self, '操作失败', '未选中表格元素')
+            return
         QMessageBox.information(self, '操作成功', '已删除该行，如需保存修改结果请点击导出按钮')
         self.curSituationSave2()
 
