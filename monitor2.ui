@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1056</width>
-    <height>854</height>
+    <height>846</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -18,6 +18,10 @@
   </property>
   <property name="windowTitle">
    <string>寿命特征监测模块</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Desktop/src=http___pic.51yuansu.com_pic2_cover_00_33_56_581127cb17246_610.jpg&amp;refer=http___pic.51yuansu.jpg</normaloff>../../Desktop/src=http___pic.51yuansu.com_pic2_cover_00_33_56_581127cb17246_610.jpg&amp;refer=http___pic.51yuansu.jpg</iconset>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
@@ -114,7 +118,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>删除</string>
+            <string>删除条目</string>
            </property>
           </widget>
          </item>
@@ -535,7 +539,7 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>删除</string>
+            <string>删除条目</string>
            </property>
           </widget>
          </item>

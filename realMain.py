@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(820, 538)
         icon = QIcon()
         icon.addFile(u"../../Desktop/favicon.ico", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -34,41 +34,44 @@ class Ui_MainWindow(object):
         self.actiondelete.setObjectName(u"actiondelete")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setAutoFillBackground(False)
         self.centralwidget.setStyleSheet(u"")
+        self.horizontalLayout_2 = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(6)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(0, 100, 411, 271))
-        self.label.setPixmap(QPixmap(u"../../Desktop/src=http___dl.ppt123.net_pptbj_51_20181115_lcwgjs0t3d4.jpg&refer=http___dl.ppt123.jpg"))
+        sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy1)
+        self.label.setPixmap(QPixmap(u"../../Desktop/src=http___img-qn.51miz.com_preview_element_00_01_15_63_E-1156317-BD8B7258.jpg&refer=http___img-qn.51miz.jpg"))
         self.label.setScaledContents(True)
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(340, 430, 121, 51))
+
+        self.verticalLayout.addWidget(self.label)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.pushButton_3 = QPushButton(self.centralwidget)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
+        self.pushButton_3.setSizePolicy(sizePolicy2)
+        self.pushButton_3.setMaximumSize(QSize(16777215, 70))
         font = QFont()
         font.setFamily(u"\u5fae\u8f6f\u96c5\u9ed1 Light")
         font.setPointSize(11)
-        self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet(u"QPushButton{\n"
-"	background-color: white;\n"
-"	border-radius: 8px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(46, 182, 255);\n"
-"}")
-        self.pushButton_2 = QPushButton(self.centralwidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(570, 430, 121, 51))
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet(u"QPushButton{\n"
-"	background-color: white;\n"
-"	border-radius: 8px;\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(46, 182, 255);\n"
-"}")
-        self.pushButton_3 = QPushButton(self.centralwidget)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setGeometry(QRect(110, 430, 121, 51))
         self.pushButton_3.setFont(font)
         self.pushButton_3.setAutoFillBackground(False)
         self.pushButton_3.setStyleSheet(u"QPushButton{\n"
@@ -79,15 +82,51 @@ class Ui_MainWindow(object):
 "QPushButton:hover{\n"
 "	background-color: rgb(46, 182, 255);\n"
 "}")
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(420, 170, 407, 130))
-        self.label_2.setPixmap(QPixmap(u"../../Desktop/\u65e0\u6807\u9898.png"))
-        self.label_2.setScaledContents(True)
+
+        self.horizontalLayout.addWidget(self.pushButton_3)
+
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
+        sizePolicy2.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
+        self.pushButton.setSizePolicy(sizePolicy2)
+        self.pushButton.setMaximumSize(QSize(16777215, 70))
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet(u"QPushButton{\n"
+"	background-color: white;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(46, 182, 255);\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.pushButton)
+
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
+        self.pushButton_2.setSizePolicy(sizePolicy)
+        self.pushButton_2.setMaximumSize(QSize(16777215, 70))
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet(u"QPushButton{\n"
+"	background-color: white;\n"
+"	border-radius: 8px;\n"
+"}\n"
+"QPushButton:hover{\n"
+"	background-color: rgb(46, 182, 255);\n"
+"}")
+
+        self.horizontalLayout.addWidget(self.pushButton_2)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout)
+
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 23))
+        self.menubar.setGeometry(QRect(0, 0, 820, 23))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu.setStyleSheet(u"QMenu {\n"
@@ -145,10 +184,9 @@ class Ui_MainWindow(object):
         self.actionedit.setText(QCoreApplication.translate("MainWindow", u"edit", None))
         self.actiondelete.setText(QCoreApplication.translate("MainWindow", u"delete", None))
         self.label.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u91cf\u5316", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u7279\u5f81\u76d1\u6d4b", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u7279\u5f81\u68c0\u6d4b", None))
         self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"\u5bff\u547d\u63a7\u5236", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"\u591a\u7269\u7406\u573a\u8026\u5408\u4eff\u771f", None))
-        self.label_2.setText("")
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u6587\u4ef6", None))
         self.menu_2.setTitle(QCoreApplication.translate("MainWindow", u"\u6570\u636e\u5e93", None))
         self.menu_3.setTitle(QCoreApplication.translate("MainWindow", u"\u5e2e\u52a9", None))

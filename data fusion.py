@@ -1,6 +1,5 @@
 import random
 import math
-# from numpy import *
 from scipy.integrate import quad
 from matplotlib import pyplot as plt
 from sympy import integrate, symbols
@@ -15,13 +14,8 @@ b = 1.5
 tao = symbols('tao')
 
 
-# mu(tao)=random.normalvariate(mua, sigmaa)* b * tao**(b - 1)
 def mu(tao):
     return random.normalvariate(mua, sigmaa) * b * tao ** (b - 1)
-
-
-# mu =@(tao)normrnd(mua, sigmaa, 1, 1)* b * tao^ (b - 1)
-# t = symbols('t')
 
 
 def Fmu(t):
@@ -29,12 +23,9 @@ def Fmu(t):
     return v
 
 
-# Fmu =@(t)integral( @ (tao)mu(tao), 0, t)
-
 sigmaB = 0.2
 
 
-# W =@(t)normrnd(0, t, 1, 1)
 def X(t):
     return X0 + Fmu(t) + sigmaB * random.normalvariate(0, t)
 
@@ -57,18 +48,11 @@ while minX < omiga:
     X_save = np.vstack((X_save, tempRow))
     minX = min([temp1, temp2, temp3, temp4, temp5, temp6, temp7])
     tim = tim + delta_t
-# end
 
-# plot(X_save(:, 1), X_save(:, 2), 'k-')
-# hold on
-# plot([0, 10], [omiga, omiga], 'k--')
 x = X_save[:, 0]
 y1 = X_save[:, 1]
 y2 = omiga
-# ！！！！
-# plt.plot(x, y1, 'k-')
-# plt.hlines(y2, 0, 9, color="blue")
-# plt.show()
+
 Tmax = np.empty((1, 1), dtype=float)
 for i in range(1, 8):
     X_temp = X_save[:, i]
@@ -80,10 +64,6 @@ for i in range(1, 8):
             break;
 
     Tmax = np.append(Tmax, X_save[tempIdx, 0])
-# for i =2:8
-# X_temp = X_save(:, i);
-# idx = max(find(X_temp < 25));
-# Tmax = [Tmax;X_save(idx + 1, 1)];
 
 x = len(Tmax)
 y = Tmax
@@ -91,20 +71,6 @@ curX = np.empty((0, 1), dtype=int)
 for index in range(len(y)):
     curX = np.append(curX, index + 1)
 
-
-# ！！！！
-# plt.scatter(curX, y)
-# plt.xlabel("同批次设备")
-# plt.ylabel("寿命T")
-# plt.show()
-
-
-# end
-# figure
-# plot(Tmax, 'r-')
-# xlabel('同批次设备')
-# ylabel('寿命T')
-# syms mua0 sigmaa0 sigmaB0 b0
 
 def F(mua0, sigmaa0, sigmaB0, b0):
     L = 1
@@ -119,22 +85,7 @@ def F(mua0, sigmaa0, sigmaB0, b0):
     return L
 
 
-# end
-
-
 emf = 10 ** 4
-# Xz = symbols('Xz')
-#
-#
-# def FF(Xz):
-#     return 1 / (2 * math.pi * T ** 3 * (Xz[1] ** 2 * T ** (2 * Xz[3] - 1) + Xz[2] ** 2)) ** 0.5 * \
-#            (omiga - (T ** Xz[3] - Xz[3] * T ** Xz[3]) * (omiga * Xz[1] ** 2 * T ** (Xz[3] - 1) + Xz[0] * Xz[2] ** 2) /
-#             (Xz[1] ** 2 * T ** (2 * Xz[3] - 1) + Xz[2] ** 2)) * \
-#            math.exp(-(omiga - Xz[0] * T ** Xz[3]) ** 2 / (2 * T * (Xz[1] ** 2. * T ** (2 * Xz[3] - 1) + Xz[2] ** 2)))
-
-
-# FF =@(Xz)(vpa(subs(F, [mua0, sigmaa0, sigmaB0, b0], [Xz(1), Xz(2), Xz(3), Xz(4)]), 4) * emf) / emf
-
 
 Fsave = np.array([[0.0, 0.0]])
 jud = 0
@@ -192,29 +143,6 @@ while jud < 10:
         jud = 0
 
 up = len(Fsave)
-# up = length(Fsave)
-
-# x = np.linspace(1, up, up)
-# y = Fsave[:, 0]
-# plt.step(x, y, 'k-')
-# plt.xlim(1, up)
-# plt.show()
-
-# figure
-# stairs(Fsave(:, 1), 'k-')
-# xlim([1, up])
-
-# x = np.linspace(1, up, up)
-# y = Fsave[:, 1]
-# plt.step(x, y, 'k-')
-# plt.xlim(1, up)
-# plt.show()
-
-# figure
-# stairs(Fsave(:, 2), 'k-')
-# xlim([1, up])
-
-# vpa(Lx0)
 
 Lxinit = Lx1
 
@@ -223,20 +151,17 @@ def mu_1(tao):
     return random.normalvariate(Lxinit[0], Lxinit[1]) * Lxinit[3] * tao ** (Lxinit[3] - 1)
 
 
-# mu_1 = @(tao) normrnd(Lxinit(1),Lxinit(2),1,1) * Lxinit(4) * tao.^(Lxinit(4)-1);
 def X_1(t):
     v, err = quad(mu_1, 0, t) + Lxinit[2] * random.normalvariate(0, 1)
     return v
 
 
-# X_1 =@(t)0 + integral( @ (tao)mu_1(tao), 0, t) + Lxinit(3) * normrnd(0, 1, 1, 1);
 X_UP = 0
 tim = delta_t
 X_save = np.array([[0.0, 0.0]])
 while X_UP < omiga:
     X_UP = X_1(tim)
     X_save = np.vstack((X_save, [tim, X_UP]))
-    #    X_save = [X_save;tim, X_UP]
     tim = tim + delta_t
 
 tim_first = tim - delta_t
@@ -245,38 +170,23 @@ x = X_save[:, 0]
 y1 = X_save[:, 1]
 y2 = omiga
 plt.plot(x, y1, 'k-')
-# plt.plot(x, y2, 'k--')
 plt.hlines(y2, 0, 9, color="blue")
 plt.show()
 
-# figure
-# plot(X_save(:, 1), X_save(:, 2), 'k-')
-# hold on
-# plot([0, 10], [omiga, omiga], 'k--')
-
 [muak, sigmaak] = bayesianChain(X_save, Lxinit)
 time = X_save[:, 0]
-time = np.delete(time, 0, 0);
+time = np.delete(time, 0, 0)
 
-x = time
-y = muak
-plt.plot(x, y, 'r-')
-plt.xlabel("退化时间")
-plt.ylabel("μ数值")
-plt.show()
-
-# figure
-# plot(time, muak, 'r-')
-# ylabel('μ数值')
-# xlabel('退化时间')
-
-x = time
-y = sigmaak
-plt.plot(x, y, 'b-')
-plt.xlabel("退化时间")
-plt.ylabel("σ数值")
-plt.show()
-# figure
-# plot(time, sigmaak, 'b-')
-# ylabel('σ数值')
-# xlabel('退化时间')
+# x = time
+# y = muak
+# plt.plot(x, y, 'r-')
+# plt.xlabel("退化时间")
+# plt.ylabel("μ数值")
+# plt.show()
+#
+# x = time
+# y = sigmaak
+# plt.plot(x, y, 'b-')
+# plt.xlabel("退化时间")
+# plt.ylabel("σ数值")
+# plt.show()

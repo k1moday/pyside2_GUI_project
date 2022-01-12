@@ -21,6 +21,8 @@ def combineAct(A1, strs):
             break
 
     strsChanged = strs
+    # if len(nodeSon) == 0:
+    #     return [A1, strsChanged]
     strsChanged[temp] = '(' + strsChanged[nodeSon[0] - 1]
     for i in range(len(nodeSon) - 1):
         if A1[temp][2] == -1:

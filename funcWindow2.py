@@ -1,17 +1,7 @@
-import sys
-import os
-from PySide2.QtCore import *
-from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from PySide2.QtSql import *
 from PySide2.QtWidgets import QFileDialog
 from PySide2.QtWidgets import QMessageBox
 from PySide2.QtUiTools import QUiLoader
-
-from mainwindow import Ui_Dialog
-from realMain import Ui_MainWindow
-
-
 
 
 class Func2Window(QMainWindow):
@@ -35,7 +25,7 @@ class Func2Window(QMainWindow):
         self.ui.pushButton_6.clicked.connect(self.inputall2)
         self.ui.pushButton_7.clicked.connect(self.saveall2)
 
-        fi = open("failure.txt", "r")
+        fi = open("failure.txt", "r", encoding='utf-8', errors='ignore')
         data = fi.readlines()
         for index in range(len(data)):
             temp = data[index].split()
@@ -48,18 +38,21 @@ class Func2Window(QMainWindow):
 
         fi.close()
 
-        fi = open("Component.txt")
+        fi = open("Component.txt", "r")
         data = fi.readlines()
         for index in range(len(data)):
             temp = data[index].split()
             if len(temp) == 0:
                 break
-            if not self.dictType2.__contains__(temp[0]):
-                self.dictType2.append(temp[0])
+            if len(temp) > 1:
+                if not self.dictType2.__contains__(temp[1]):
+                    self.dictType2.append(temp[1])
             for indexi in range(len(temp)):
                 self.ui.tableWidget_2.setItem(index, indexi, QTableWidgetItem(str(temp[indexi])))
         fi.close()
 
+        self.ui.comboBox_3.addItem('全部选项')
+        self.ui.comboBox.addItem('全部选项')
         self.ui.comboBox_3.addItems(self.dictType)
         self.ui.comboBox.addItems(self.dictType2)
         self.ui.comboBox_3.currentIndexChanged.connect(self.handleSelectionChange)
@@ -70,6 +63,9 @@ class Func2Window(QMainWindow):
         self.ui.pushButton_9.clicked.connect(self.delete2)
 
         self.curSituationSave()
+        self.curSituationSave2()
+        self.ui.tableWidget_2.resizeColumnsToContents()
+        self.ui.tableWidget_5.resizeColumnsToContents()
 
     def saveall(self):
         if self.flag == 1:
@@ -146,6 +142,7 @@ class Func2Window(QMainWindow):
             for indexj in range(len(temp)):
                 self.ui.tableWidget_5.setItem(indexi, indexj, QTableWidgetItem(str(temp[indexj])))
         fi.close()
+        self.ui.tableWidget_5.resizeColumnsToContents()
 
     def inputall2(self):
         path, _ = QFileDialog.getOpenFileName()
@@ -156,9 +153,13 @@ class Func2Window(QMainWindow):
             for indexj in range(len(temp)):
                 self.ui.tableWidget_2.setItem(indexi, indexj, QTableWidgetItem(str(temp[indexj])))
         fi.close()
+        self.ui.tableWidget_2.resizeColumnsToContents()
 
     def handleSelectionChange(self):
         curType = self.ui.comboBox_3.currentText()
+        if curType == '全部选项':
+            self.restore()
+            return
         if self.flag == 0:
             self.curSituationSave()
         fi = open("tempFailiure.txt", "r")
@@ -181,6 +182,9 @@ class Func2Window(QMainWindow):
 
     def handleSelectionChange2(self):
         curType = self.ui.comboBox.currentText()
+        if curType == '全部选项':
+            self.restore2()
+            return
         if self.flag2 == 0:
             self.curSituationSave2()
         fi = open("tempComponent.txt", "r")
@@ -191,7 +195,7 @@ class Func2Window(QMainWindow):
             temp = data[indexi].split()
             if len(temp) == 0:
                 break
-            if temp[0] == curType:
+            if temp[1] == curType:
                 curTypelist.append(temp)
 
         for indexi in range(len(curTypelist)):
@@ -200,6 +204,7 @@ class Func2Window(QMainWindow):
                 self.ui.tableWidget_2.setItem(indexi, indexj, QTableWidgetItem(str(temp[indexj])))
         fi.close()
         self.flag2 = 1
+        self.ui.tableWidget_2.resizeColumnsToContents()
 
     def restore(self):
         fi = open("tempFailiure.txt", "r")
@@ -220,6 +225,7 @@ class Func2Window(QMainWindow):
                 self.ui.tableWidget_2.setItem(indexi, indexj, QTableWidgetItem(str(temp[indexj])))
         fi.close()
         self.flag2 = 0
+        self.ui.tableWidget_2.resizeColumnsToContents()
 
     def delete(self):
         if self.flag == 1:
@@ -241,6 +247,7 @@ class Func2Window(QMainWindow):
             return
         QMessageBox.information(self, '操作成功', '已删除该行，如需保存修改结果请点击导出按钮')
         self.curSituationSave2()
+        self.ui.tableWidget_2.resizeColumnsToContents()
 
     def addRow(self):
         rowNum = self.ui.tableWidget_5.rowCount()
